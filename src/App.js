@@ -21,14 +21,13 @@ function App() {
                 const data = await response.json();
 
                 const loadedMovies = [];
-                for (const key in data){
+                for (const key in data) {
                     loadedMovies.push({
-                        id : key,
-                        title : data[key].title,
-                        openingText: data[key].openingText,
-                        releaseDate: data[key].releaseDate
+                            id: key,
+                            title: data[key].title,
+                            openingText: data[key].openingText,
+                            releaseDate: data[key].releaseDate
                         }
-
                     )
                 }
                 setMovies(loadedMovies);
@@ -56,10 +55,10 @@ function App() {
     }
 
     const addMovieHandler = async (movie) => {
-        const response = await fetch('https://dummymovies-b1b4b-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json',{
-            method:'Post',
-            body : JSON.stringify(movie),
-            headers : {
+        const response = await fetch('https://dummymovies-b1b4b-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json', {
+            method: 'Post',
+            body: JSON.stringify(movie),
+            headers: {
                 'Content-Type': 'movies/json'
             }
         })
